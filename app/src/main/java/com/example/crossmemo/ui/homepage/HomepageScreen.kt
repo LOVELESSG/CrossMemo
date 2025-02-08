@@ -8,6 +8,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -25,7 +30,17 @@ fun HomepageScreen(navController: NavController) {
     val memos : List<Memo> = emptyList()
 
     Scaffold(
-        containerColor = Color.Black.copy(alpha = 0.6f)
+        containerColor = Color.Black.copy(alpha = 0.6f),
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {}
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Create,
+                    contentDescription = "Add new memo"
+                )
+            }
+        },
         //contentWindowInsets = WindowInsets(top = 0)
     ) { innerPadding ->
         LazyColumn(
