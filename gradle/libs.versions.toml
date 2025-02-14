@@ -7,12 +7,13 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.0"
-composeBom = "2025.01.01"
+composeBom = "2025.02.00"
 roomCompiler = "2.6.1"
-uiTextGoogleFonts = "1.7.7"
-navigationCompose = "2.8.6"
+uiTextGoogleFonts = "1.7.8"
+navigationCompose = "2.8.7"
 roomRuntime = "2.6.1"
 roomKtx = "2.6.1"
+richeditorCompose = "1.0.0-dev01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +35,7 @@ androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntime" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+richeditor-compose = { group = "com.mohamedrejeb.richeditor", name = "richeditor-compose", version.ref = "richeditorCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
