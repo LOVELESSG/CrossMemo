@@ -33,7 +33,9 @@ fun HomepageScreen(navController: NavController) {
         containerColor = Color.Black.copy(alpha = 0.6f),
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {}
+                onClick = {
+                    navController.navigate("memo_edit_screen")
+                }
             ) {
                 Icon(
                     imageVector = Icons.Default.Create,

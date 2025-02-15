@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.crossmemo.navigation.Screen
 import com.example.crossmemo.ui.homepage.HomepageScreen
+import com.example.crossmemo.ui.memoEditPage.MemoEditScreen
 
 @Composable
 fun SetupNavGraph(
@@ -22,6 +23,12 @@ fun SetupNavGraph(
             HomepageScreen(
                 navController = navController
             )
+        }
+
+        composable(
+            route = Screen.MemoEdit.route
+        ) {
+            MemoEditScreen()
         }
     }
 }

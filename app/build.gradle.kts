@@ -67,4 +67,7 @@ dependencies {
 
     // Add support for Compose Rich Editor
     implementation(libs.richeditor.compose)
+
+    // Add support for extend icons
+    implementation(libs.androidx.material.icons.extended)
 }
