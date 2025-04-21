@@ -11,8 +11,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.FormatAlignLeft
@@ -95,134 +98,144 @@ fun EditorControlsBar(
         )
     }
 
-    FlowRow(
+    LazyRow(
         modifier = modifier
             .fillMaxWidth()
             .padding(all = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        ControlWrapper(
-            selected = boldSelected,
-            onChangeClick = { boldSelected = it },
-            onClick = onBoldClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.FormatBold,
-                contentDescription = "Bold",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = italicSelected,
-            onChangeClick = { italicSelected = it },
-            onClick = onItalicClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.FormatItalic,
-                contentDescription = "Italic",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = underlineSelected,
-            onChangeClick = { underlineSelected = it },
-            onClick = onUnderlineClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.FormatUnderlined,
-                contentDescription = "Underline",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = titleSelected,
-            onChangeClick = { titleSelected = it },
-            onClick = onTitleClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.Title,
-                contentDescription = "Title",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = subtitleSelected,
-            onChangeClick = { subtitleSelected = it },
-            onClick = onSubtitleClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.FormatSize,
-                contentDescription = "Subtitle",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = textColorSelected,
-            onChangeClick = { textColorSelected = it },
-            onClick = onTextColorClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.FormatColorText,
-                contentDescription = "Text Color",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = linkSelected,
-            onChangeClick = { linkSelected = it },
-            onClick = { showLinkDialog = true }
-        ) {
-            Icon(
-                imageVector = Icons.Default.AddLink,
-                contentDescription = "Add Link",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = alignmentSelected == 0,
-            onChangeClick = { alignmentSelected = 0 },
-            onClick = onStartAlignClick
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.FormatAlignLeft,
-                contentDescription = "Start Align",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = alignmentSelected == 1,
-            onChangeClick = { alignmentSelected = 1 },
-            onClick = onCenterAlignClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.FormatAlignCenter,
-                contentDescription = "Center Align",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = alignmentSelected == 2,
-            onChangeClick = { alignmentSelected = 2 },
-            onClick = onEndAlignClick
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.FormatAlignRight,
-                contentDescription = "End Align",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
-        ControlWrapper(
-            selected = true,
-            selectedColor = MaterialTheme.colorScheme.tertiary,
-            onChangeClick = {},
-            onClick = onExportClick
-        ) {
-            Icon(
-                imageVector = Icons.Default.Save,
-                contentDescription = "Export",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
+        item {
+            ControlWrapper(
+                selected = boldSelected,
+                onChangeClick = { boldSelected = it },
+                onClick = onBoldClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatBold,
+                    contentDescription = "Bold",
+                    tint = if (boldSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = italicSelected,
+                onChangeClick = { italicSelected = it },
+                onClick = onItalicClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatItalic,
+                    contentDescription = "Italic",
+                    tint = if (italicSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = underlineSelected,
+                onChangeClick = { underlineSelected = it },
+                onClick = onUnderlineClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatUnderlined,
+                    contentDescription = "Underline",
+                    tint = if (underlineSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = titleSelected,
+                onChangeClick = { titleSelected = it },
+                onClick = onTitleClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Title,
+                    contentDescription = "Title",
+                    tint = if (titleSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = subtitleSelected,
+                onChangeClick = { subtitleSelected = it },
+                onClick = onSubtitleClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatSize,
+                    contentDescription = "Subtitle",
+                    tint = if (subtitleSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = textColorSelected,
+                onChangeClick = { textColorSelected = it },
+                onClick = onTextColorClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatColorText,
+                    contentDescription = "Text Color",
+                    tint = if (textColorSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = linkSelected,
+                onChangeClick = { linkSelected = it },
+                onClick = { showLinkDialog = true }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.AddLink,
+                    contentDescription = "Add Link",
+                    tint = if (linkSelected) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = alignmentSelected == 0,
+                onChangeClick = { alignmentSelected = 0 },
+                onClick = onStartAlignClick
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.FormatAlignLeft,
+                    contentDescription = "Start Align",
+                    tint = if (alignmentSelected == 0) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = alignmentSelected == 1,
+                onChangeClick = { alignmentSelected = 1 },
+                onClick = onCenterAlignClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.FormatAlignCenter,
+                    contentDescription = "Center Align",
+                    tint = if (alignmentSelected == 1) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = alignmentSelected == 2,
+                onChangeClick = { alignmentSelected = 2 },
+                onClick = onEndAlignClick
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.FormatAlignRight,
+                    contentDescription = "End Align",
+                    tint = if (alignmentSelected == 2) MaterialTheme.colorScheme.inverseOnSurface else MaterialTheme.colorScheme.onSurface
+                )
+            }
+            /*Spacer(modifier = Modifier.width(8.dp))
+            ControlWrapper(
+                selected = true,
+                selectedColor = MaterialTheme.colorScheme.tertiary,
+                onChangeClick = {},
+                onClick = onExportClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Save,
+                    contentDescription = "Export",
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }*/
         }
     }
 }
@@ -230,8 +243,8 @@ fun EditorControlsBar(
 @Composable
 fun ControlWrapper(
     selected: Boolean,
-    selectedColor: Color = MaterialTheme.colorScheme.primary,
-    unselectedColor: Color = MaterialTheme.colorScheme.inversePrimary,
+    selectedColor: Color = MaterialTheme.colorScheme.inverseSurface,
+    unselectedColor: Color = MaterialTheme.colorScheme.surface,
     onChangeClick: (Boolean) -> Unit,
     onClick: () -> Unit,
     content: @Composable () -> Unit
@@ -246,11 +259,6 @@ fun ControlWrapper(
             .background(
                 if (selected) selectedColor
                 else unselectedColor
-            )
-            .border(
-                width = 1.dp,
-                color = Color.LightGray,
-                shape = RoundedCornerShape(size = 6.dp)
             )
             .padding(all = 8.dp),
         contentAlignment = Alignment.Center
@@ -288,7 +296,7 @@ fun LinkDialog(
                 )
                 TextField(
                     value = url,
-                    onValueChange = { text = it },
+                    onValueChange = { url = it },
                     label = { Text("Link") }
                 )
                 Row(
