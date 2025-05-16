@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -70,4 +71,8 @@ dependencies {
 
     // Add support for extend icons
     implementation(libs.androidx.material.icons.extended)
+
+    // Add support for hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }
