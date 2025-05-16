@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.CrossMemoTheme
-import com.example.crossmemo.data.Memo
+import com.example.crossmemo.data.memo.Memo
 import com.example.crossmemo.ui.components.BriefMemoCard
 
 @Composable
