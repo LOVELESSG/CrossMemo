@@ -17,7 +17,9 @@ import com.example.compose.CrossMemoTheme
 import com.example.crossmemo.navigation.Screen
 import com.example.crossmemo.navigation.navGraph.SetupNavGraph
 import com.example.crossmemo.ui.homepage.HomepageScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var navController: NavHostController

@@ -28,7 +28,9 @@ fun SetupNavGraph(
         composable(
             route = Screen.MemoEdit.route
         ) {
-            MemoEditScreen()
+            MemoEditScreen(
+                navController = navController
+            )
         }
     }
 }
